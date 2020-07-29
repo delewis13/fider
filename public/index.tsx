@@ -51,7 +51,7 @@ window.addEventListener("error", (evt: ErrorEvent) => {
   const config = resolveRootComponent(location.pathname);
   document.body.className = classSet({
     "is-authenticated": fider.session.isAuthenticated,
-    "is-staff": fider.session.isAuthenticated && fider.session.user.isCollaborator
+    "is-staff": fider.session.isAuthenticated && fider.session.user.isCollaborator,
   });
   ReactDOM.render(
     <React.StrictMode>
@@ -60,7 +60,7 @@ window.addEventListener("error", (evt: ErrorEvent) => {
           <IconContext.Provider value={{ className: "icon" }}>
             {config.showHeader && <Header />}
             <Suspense fallback={<Loading />}>{React.createElement(config.component, fider.session.props)}</Suspense>
-            {config.showHeader && <Footer />}
+            {/* {config.showHeader && <Footer />} */}
           </IconContext.Provider>
         </FiderContext.Provider>
       </ErrorBoundary>
